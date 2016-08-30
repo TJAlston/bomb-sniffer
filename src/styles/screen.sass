@@ -1,36 +1,46 @@
 @import 'utility'
 
-$base-text-size: 16px
-$base-font-family: "VT323", monospace
+$base-text-size: 12px
+$base-font-family: 'Rock Salt', cursive
+
 
 html
   text-size-adjust: 100%
 
 body
   @include font-smoothing(on)
-  margin: 0
   font: $base-text-size / 1 $base-font-family
-  background-image: url("../images/background.png")
+  background-image: url("http://img.wallpaperfolder.com/f/523116FFA287/apocalyptic-computer-backgrounds-2560x1600-armageddon.jpg")
   background-size: cover
   background-repeat: no-repeat
-  min-height: 100vh
+  max-height: 100vh
+  overflow: hidden
 
 h1
-  margin-bottom: 1.5em
-  margin-top: 0
+  font-size: 50px
+  font: $base-font-family
+  text-align: center
   color: #D7DEE1
+  text-shadow: rgb(92, 57, 20) 4px 4px 4px
+
+h2
+  color: white
 
 #root > div
   display: flex
   justify-content: center
-  flex-direction: column
   align-items: center
   min-height: 100vh
 
 table
+  margin: 150px 150px
+  margin-top: -30px
   border-spacing: 0
 
   td
+    font-size: 8px
+    font-weight: bolder
+    font: $base-font-family
     height: 16px
     width: 16px
     line-height: 16px
@@ -48,15 +58,26 @@ table
       background-size: 60%, contain
 
     &.bomb
-      background-image: url("../images/bomb.png"), url("../images/red.png")
-      background-size: 60%, contain
+      background-image: url("../images/bomb3.gif"), url("../images/red.png")
+      background-size: 90%, contain
 
     &.unrevealed
       background-image: url("../images/unrevealed.png")
 
     &.flag-bomb
-      background-image: url("../images/bomb.png"), url("../images/green.png")
-      background-size: 60%, contain
+      background-image: url("../images/bomb3.gif"), url("../images/green.png")
+      background-size: 90%, contain
 
     &.empty, &.flagged, &.bomb, &.flag-bomb
       color: transparent
+
+.Select
+  color: white
+  border: 2px solid red
+
+button
+  height: 50px
+  width: 150px
+  border-radius: 5px
+  background-color: rgb(193, 103, 38)
+  font-weight: bolder

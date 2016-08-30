@@ -10,8 +10,8 @@ class Home extends Component {
   render () {
     return <div className="Home">
     <h1>BOMBSNIFFER&trade;</h1>
+    <h2>Select Your Difficulty</h2>
       <Select
-        label="Select Your Difficulty"
         name="difficulty_level"
         options={[{children: '99 BOMBS!!!', value: 2}, {children: 'MID LEVEL', value: 1}, {children: 'SLACKER', value: 0}]}
         rounded
