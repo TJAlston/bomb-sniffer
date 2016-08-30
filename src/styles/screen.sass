@@ -1,6 +1,6 @@
 @import 'utility'
 
-$base-text-size: 12px
+$base-text-size: 15px
 $base-font-family: 'Rock Salt', cursive
 
 
@@ -25,6 +25,8 @@ h1
 
 h2
   color: white
+  text-align: center
+  text-decoration: underline
 
 #root > div
   display: flex
@@ -49,6 +51,7 @@ table
     background-size: contain
     background-repeat: no-repeat
     background-position: center
+    box-shadow: 0px 10px 10px 2px rgba(#7a2007, 0.86)
 
     &.empty, &.numbered
       background-image: url("../images/revealed.png")
@@ -74,6 +77,7 @@ table
 .Select
   color: white
   border: 2px solid red
+  background-color: grey
 
 button
   height: 50px
@@ -81,3 +85,6 @@ button
   border-radius: 5px
   background-color: rgb(193, 103, 38)
   font-weight: bolder
+
+.Game button
+  align-items: center

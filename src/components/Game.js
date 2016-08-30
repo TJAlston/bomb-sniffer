@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cell from './Cell'
+import '../styles/screen.sass'
 
 const API_URL = 'http://minesweeper-api.herokuapp.com'
 
@@ -12,11 +13,30 @@ class Game extends Component {
   }
 
   componentDidMount () {
-    window.fetch(`${API_URL}/games?difficulty=${this.props.difficulty}`, {
+    const gameId = window.localStorage.getItem('gameId')
+    if (gameId) {
+      window.fetch(`${API_URL}/games/${gameId}`)
+      .then((response) => {
+        return response.json()
+      }).then((data) => {
+        if (data.state === 'won' || data.state === 'lost') {
+          this.createGame()
+        } else {
+          this.setState(data)
+        }
+      })
+    } else {
+      this.createGame()
+    }
+  }
+
+  createGame () {
+    window.fetch(`${API_URL}/games?difficulty=1`, {
       method: 'POST'
     }).then((response) => {
       return response.json()
     }).then((data) => {
+      window.localStorage.setItem('gameId', data.id)
       this.setState(data)
     })
   }
@@ -54,7 +74,7 @@ class Game extends Component {
       })
       return <tr key={i}>{cells}</tr>
     })
-    return <div className="Game">
+    return <div>
       <h1>Bomb Sniffer!</h1>
       <table>
         <tbody>
